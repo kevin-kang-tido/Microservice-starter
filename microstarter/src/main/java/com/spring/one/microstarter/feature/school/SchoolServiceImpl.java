@@ -31,7 +31,6 @@ public class SchoolServiceImpl implements SchoolService {
 
      return schoolMapper.toSchoolResponse(school);
 
-
     }
 
     @Override

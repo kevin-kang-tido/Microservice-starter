@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/school")
@@ -23,8 +24,6 @@ public class SchoolController {
     SchoolResponse createSchool(@RequestBody SchoolRequest schoolRequest){
         return schoolService.create(schoolRequest);
     }
-    // get by list
-
 
     @GetMapping
     Page<SchoolResponse> getSchoolList(

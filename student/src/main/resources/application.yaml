@@ -30,6 +30,9 @@ spring:
       hostname: localhost
 
 
+
+
+
 # swagger ui url
 #  springdoc:
 #    swagger-ui:
@@ -37,3 +40,5 @@ spring:
 #      url: /fullstack-api-docs
 #    api-docs:
 #      path: /fullstack-api-docs
+server:
+  port: 9998

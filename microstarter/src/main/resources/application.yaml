@@ -1,3 +1,6 @@
+server:
+  port: 9999
+
 spring:
   application:
     name: SCHOOL-SERVICE
@@ -31,6 +34,7 @@ spring:
       hostname: localhost
 
 
+
 # swagger ui url
 #  springdoc:
 #    swagger-ui:
@@ -38,3 +42,4 @@ spring:
 #      url: /fullstack-api-docs
 #    api-docs:
 #      path: /fullstack-api-docs
+

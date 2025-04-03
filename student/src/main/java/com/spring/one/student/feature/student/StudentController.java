@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/students")
+@RequestMapping("/api/v1/student")
 public class StudentController {
 
     private final StudentService studentService;
@@ -21,7 +21,6 @@ public class StudentController {
 
     }
 
-    //
     @GetMapping
     Page<StudentResponse> getAllStudentsList(
             @RequestParam(required = false,defaultValue = "0") int page,
