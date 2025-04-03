@@ -1,0 +1,44 @@
+
+spring:
+  application:
+    name: USER-SERVICE
+
+  profiles:
+    active: dev
+
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  eureka:
+    client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
+
+
+
+
+
+# swagger ui url
+#  springdoc:
+#    swagger-ui:
+#      path: /fullstack-api-ui.html
+#      url: /fullstack-api-docs
+#    api-docs:
+#      path: /fullstack-api-docs
+
