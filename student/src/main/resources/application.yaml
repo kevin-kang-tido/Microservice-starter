@@ -40,5 +40,4 @@ spring:
 #      url: /fullstack-api-docs
 #    api-docs:
 #      path: /fullstack-api-docs
-server:
-  port: 9998
+

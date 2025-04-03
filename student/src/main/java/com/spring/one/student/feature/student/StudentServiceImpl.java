@@ -27,7 +27,6 @@ public class StudentServiceImpl implements StudentService {
             );
         }
 
-        //
         Student student =  studentMapper.formStudentCreateRequest(studentRequest);
 
         studentRepository.save(student);
@@ -57,5 +56,76 @@ public class StudentServiceImpl implements StudentService {
         Page<Student> students = studentRepository.findAll(pageRequest);
 
         return students.map(studentMapper::toStudentResponse);
+    }
+
+    @Override
+    public StudentResponse getStudentByName(String name) {
+
+        if (!studentRepository.existsByName(name)){
+            throw  new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Student with name " + name + " does not exist!"
+            );
+        }
+
+        Student student = studentRepository.findStudentByName(name)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Student"+getStudentByName(name)+" not found!"
+                ));
+
+        return studentMapper.toStudentResponse(student);
+    }
+
+    @Override
+    public StudentResponse getStudentById(Long id) {
+
+        if (!studentRepository.existsById(id)){
+            throw  new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Student does not exist!"
+            );
+        }
+
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Student"+getStudentById(id)+" not found!"
+                ));
+
+        return studentMapper.toStudentResponse(student);
+    }
+
+    @Override
+    public StudentResponse updateStudent(Long id,StudentRequest studentRequest) {
+
+        // find student first
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Student"+getStudentById(id)+" not found!"
+                ));
+
+       studentMapper.updateStudentRequest(studentRequest, student);
+       studentRepository.save(student);
+
+        return studentMapper.toStudentResponse(student);
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
+
+        // find student first
+        if(!studentRepository.existsById(id)){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Student has not been found!"
+            );
+
+        }
+
+        // save student
+        studentRepository.deleteById(id);
+
     }
 }

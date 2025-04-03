@@ -11,5 +11,17 @@ public interface StudentService {
     // TODO: get all Student list
     Page<StudentResponse> getAllStudentList(int page, int size);
 
+    // find Name
+    StudentResponse getStudentByName(String name);
+
+    StudentResponse getStudentById(Long id);
+
+    StudentResponse updateStudent(Long id,StudentRequest studentRequest);
+
+    void deleteStudent(Long id);
+
+
+
+
 
 }

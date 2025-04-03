@@ -14,7 +14,6 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    //
     @PostMapping("/create")
     StudentResponse create(@RequestBody StudentRequest studentRequest) {
         return  studentService.createStudent(studentRequest);
@@ -31,8 +30,29 @@ public class StudentController {
 
     }
 
-    // get School by Name
-//    @GetMapping()
+    // TODO: find by name
+    @GetMapping("/name/{name}")
+    StudentResponse getStudentByName(@PathVariable String name) {
+        return studentService.getStudentByName(name);
+    }
+
+    // find by id
+    @GetMapping("/{id}")
+    StudentResponse findStudentById(@PathVariable Long id) {
+        return studentService.getStudentById(id);
+    }
+
+    // TODO: update student
+    @PutMapping("/{id}")
+    StudentResponse updateStudent(@PathVariable Long id, @RequestBody StudentRequest studentRequest) {
+        return studentService.updateStudent(id, studentRequest);
+    }
+
+    @DeleteMapping()
+    void deleteStudentById(@RequestParam Long id) {
+        studentService.deleteStudent(id);
+    }
+
 
 
 }
