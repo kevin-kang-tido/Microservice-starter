@@ -19,8 +19,6 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
@@ -32,20 +30,35 @@ dependencies {
 
 	annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	// add mapstruct
 	compileOnly 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
 	// Eureka Client Dependency
-//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+   // implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 
 	// Swagger dependencies
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// spring security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// OAuth 2 Dependency
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+	// validation dependency
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// for mail service
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	// thymeleaf (Write text send to phone	)
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 }
 

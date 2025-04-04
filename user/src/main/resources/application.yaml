@@ -21,24 +21,29 @@ spring:
         format_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  eureka:
-    client:
-      register-with-eureka: true
-      fetch-registry: true
-      service-url:
-        defaultZone: http://localhost:8761/eureka/
-    instance:
-      hostname: localhost
+#  eureka:
+#    client:
+#      register-with-eureka: true
+#      fetch-registry: true
+#      service-url:
+#        defaultZone: http://localhost:8761/eureka/
+#    instance:
+#      hostname: localhost
 
 
-
-
-
-# swagger ui url
-#  springdoc:
-#    swagger-ui:
-#      path: /fullstack-api-ui.html
-#      url: /fullstack-api-docs
-#    api-docs:
-#      path: /fullstack-api-docs
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GMAIL_USERNAME}
+    password: ${GMAIL_PASSWORD}
+    senderName: ${EMAIL_SENDER}
+    default-encoding: UTF-8
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            required: true
+            enable: true
 

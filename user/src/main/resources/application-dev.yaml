@@ -6,3 +6,7 @@ DB_NAME: personal_db
 
 server:
   port: 9997
+
+GMAIL_USERNAME: kevintido0@gmail.com
+GMAIL_PASSWORD: dfos dfta hwaj rbnr
+EMAIL_SENDER: MicroService
