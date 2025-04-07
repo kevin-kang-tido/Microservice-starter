@@ -4,19 +4,21 @@ package com.apdbank.user.fearture.user.dto;
 public record UserResponse(
         String uuid,
 
-        String email,
-
         String firstName,
 
         String lastName,
 
+        String  username,
+
+        String  password,
+
+        String confirmPassword,
+
         String phoneNumber,
 
-        String username,
+        String email,
 
         String avatar,
-
-        Boolean isBlock,
 
         Boolean isEmailVerified
 ) {

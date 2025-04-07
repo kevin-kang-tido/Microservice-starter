@@ -33,6 +33,7 @@ eureka:
 #          - Path=/api/v1/school/**
 #
 #
+
 #eureka:
 #  client:
 #    register-with-eureka: true

@@ -11,4 +11,5 @@ public interface MailService {
 
     void welcome(User user);
 
+   void thankYouEmail(User user,String type);
 }

@@ -56,6 +56,7 @@ dependencies {
 
 	// for mail service
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 	// thymeleaf (Write text send to phone	)
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'

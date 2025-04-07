@@ -1,7 +1,10 @@
 package com.apdbank.user.fearture.user.dto;
 
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
+@Builder
 public record UserRegistrationResponse(
         String message,
 
@@ -13,9 +16,9 @@ public record UserRegistrationResponse(
 
         String data,
 
-        String token
+        String token,
 
-//        UserDetailResponse user
+        UserDetailResponse user
 
 ) {
 }

@@ -17,7 +17,7 @@ public record UserDetailResponse(
 
         String avatar,
 
-        Boolean isBlock,
+        Boolean isBlocked,
 
         Boolean isEmailVerified,
 
@@ -28,7 +28,6 @@ public record UserDetailResponse(
         Boolean isCredentialsNonExpired,
 
         List<RoleResponse> roles
-
 
 ) {
 }

@@ -22,16 +22,12 @@ public record UserRegistrationRequest(
         @NotBlank(message = "Email is required")
         String email,
 
-        @NotBlank(message = "Username is required")
-        @JsonProperty("username") // ✅ Fix: Ensure JSON "username" maps to userName
-        String username,
-
         @NotBlank(message = "Password is required")
         @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
         String password,
 
-        @NotBlank(message = "Comfirm Password is Required")
-        String comfirmPassword
+        @NotBlank(message = "Confirm Password is Required")
+        String confirmPassword
 
 ) {
 }

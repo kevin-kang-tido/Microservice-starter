@@ -10,3 +10,8 @@ server:
 GMAIL_USERNAME: kevintido0@gmail.com
 GMAIL_PASSWORD: dfos dfta hwaj rbnr
 EMAIL_SENDER: MicroService
+
+
+MEDIA_SERVER_PATH: src/main/resources/filestorage/fullstack-medias/
+MEDIA_BASE_URI: http://localhost:9997/media
+MEDIA_CLIENT_PATH: /media/**

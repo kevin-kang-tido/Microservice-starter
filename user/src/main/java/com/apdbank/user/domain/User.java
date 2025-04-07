@@ -1,11 +1,14 @@
 package com.apdbank.user.domain;
 
 
+import com.apdbank.user.fearture.mail.VerificationToken.VerificationToken;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -45,12 +48,12 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String comfirmPassword;
+    private String confirmPassword;
 
     @Column(length = 30)
     private String gender;
 
-    private boolean isEmailVerified;
+    private Boolean isEmailVerified;
 
     private boolean isDeleted; // TODO: delete form the database
 
@@ -67,16 +70,26 @@ public class User {
     private boolean isCredentialsNonExpired;
 
     @Column(updatable = false,nullable = false)
-    private LocalTime createAt;  // TODO: current time createAt acc
+    private LocalDateTime createAt;  // TODO: current time createAt acc
 
-    private LocalTime updateAt;
+    private LocalDateTime updateAt;
 
-    private LocalTime lastLoginAt;
+    private LocalDateTime lastLoginAt;
 
     @ManyToMany(fetch = FetchType.EAGER) // ✅ Load roles immediately
     private List<Role> roles;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VerificationToken> tokens;
 
+    @PrePersist
+    protected void onCreate() {
+        this.createAt = LocalDateTime.now();
+    }
 
+    @PreUpdate
+    protected void onUpdate() {
+        this.updateAt = LocalDateTime.now();
+    }
 
 }
